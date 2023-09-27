@@ -1,0 +1,23 @@
+.navbar-brand{
+    font-family: 'Lucida Handwriting';
+}
+.flex-container{
+    display: flex;
+}
+.flex-child {
+    margin-left: 47vw;
+    flex: 1;
+    padding-top: 4px;
+}
+.flex-child:first-child{
+    margin-right: 40vw;
+}
+.menu{
+    margin: auto;
+}
+.nav-link {
+    color: black !important;
+}
+.cart{
+    margin-top: -20px;
+}
