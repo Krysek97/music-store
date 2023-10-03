@@ -6,9 +6,10 @@ import Pages from './main/Pages';
 function App() {
   return (
     <div><Navbar></Navbar>
-      <BrowserRouter>
+    <BrowserRouter>
         <Pages></Pages>
-      </BrowserRouter>
+        </BrowserRouter>
+
     </div>
   );
 }

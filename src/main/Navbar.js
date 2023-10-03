@@ -63,6 +63,7 @@ function Navbar() {
               <li><a class="dropdown-item" href="/add_item">Add item</a></li>
               <li><a class="dropdown-item" href="/add_customer">Add customer</a></li>
               <li><a class="dropdown-item" href="/add_admin">Add admin</a></li>
+              <li><a class="dropdown-item" href="/image">Add image</a></li>
             </ul>
           </li>
         </ul>
