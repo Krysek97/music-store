@@ -54,7 +54,7 @@ function Navbar() {
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Drums</a>
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item" href="/a_drums">Acoustic Drums</a></li>
-              <li><a class="dropdown-item" href="/e_drums">E-drums</a></li>
+              <li><a class="dropdown-item" href="/e_drums">E-Drums</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">

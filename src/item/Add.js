@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Cookies from "universal-cookie";
 import './css/add.css';
 
 function Add() {
@@ -9,7 +8,10 @@ function Add() {
     const [brand, setBrand] = useState('');
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
-    const [image, setImage] = useState(null);
+    const [description, setDescription] = useState('');
+    const [image, setImage] = useState(null)
+
+
 
     const handleModelChange = (e) => {
         setModel(e.target.value);
@@ -24,49 +26,57 @@ function Add() {
     const handleCategoryChange = (e) => {
         setCategory(e.target.value);
     }
-    const handleImageSelect = (event) => {
-        setImage(getBase64(event.target.files[0]))
+    const handleDescriptionChange = (e) => {
+        setDescription(e.target.value);
     }
+    const handleImageSelect = (e) => {
+        setImage((e.target.files[0]));
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         alert('Dodano przedmiot');
 
-        const body = {
+        const bodyImage = {
+            image: image,
+        }
+
+        const bodyItem = {
             model: model,
             brand: brand,
             price: price,
             category: category,
-            image: image,
+            description: description
         };
-        console.log(body);
-        let config = {
+
+        let configImage = {
+            headers: {
+                'Content-Type': "multipart/form-data",
+                "Access-Control-Allow-Origin": "*",
+            }
+        };
+
+        let configItem = {
             headers: {
                 'Content-Type': 'application/json;charset=UTF-8',
                 "Access-Control-Allow-Origin": "*",
             }
         };
 
-        axios.post("http://localhost:8080/item/add", body, config)
+
+        axios.post("http://localhost:8080/item/add", bodyItem, configItem)
             .then((response) => {
-                console.log(response.data);
+                axios.post("http://localhost:8080/image/add/" + response.data.id, bodyImage, configImage)
+                    .then((response) => {
+                        console.log(response.data);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
             })
             .catch((error) => {
                 console.log(error);
             })
-    }
-
-    function getBase64(file) {
-        return new Promise((resolve, reject) => {
-            // Create file reader
-            let reader = new FileReader()
-        
-            // Register event listeners
-            reader.addEventListener("loadend", e => resolve(e.target.result))
-            reader.addEventListener("error", reject)
-        
-            // Read file
-            reader.readAsArrayBuffer(file)
-          })
     }
 
 
@@ -91,13 +101,21 @@ function Add() {
                         <input name='price' class="form-control" type="number" value={price} required onChange={(e) => { handlePriceChange(e) }}></input>
                     </div>
                 </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea class="form-control" type="text" value={description} required onChange={(e) => {handleDescriptionChange(e)}} rows="3"></textarea>
+                </div>
                 <div class="col-auto">
                     <label class="visually-hidden" >Category</label>
                     <select name='category' class="form-select" id="autoSizingSelect" value={category} required onChange={(e) => { handleCategoryChange(e) }}>
                         <option selected>Category</option>
-                        <option value="GUITAR">Guitar</option>
-                        <option value="BASS">Bass</option>
-                        <option value="DRUMS">Drums</option>
+                        <option value="A_GUITAR">Acoustic Guitar</option>
+                        <option value="E_GUITAR">Electric Guitar</option>
+                        <option value="C_GUITAR">Classic Guitar</option>
+                        <option value="E_BASS">Electric Bass</option>
+                        <option value="A_BASS">Acoustic Bass</option>
+                        <option value="A_DRUMS">Acoustic Drums</option>
+                        <option value="E_DRUMS">E-Drums</option>
                     </select>
                 </div>
                 <div class="mb-3">

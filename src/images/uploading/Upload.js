@@ -17,7 +17,6 @@ const Form = () => {
     const body = {
       image: image,
     };
-    console.log(body);
     let config = {
       headers: {
         'Content-Type': "multipart/form-data",
