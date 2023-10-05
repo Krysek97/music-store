@@ -32,7 +32,7 @@ function A_Guitars() {
 
 
     return (
-        <div class="card" style={{ width: "18rem" }}>
+        <div class="d-flex flex-row mb-3">
             {item.map((item) => (
                 <Item item={item}></Item>
             ))}
