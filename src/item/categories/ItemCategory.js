@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Item from "../../Item";
+import Item from "../Item";
 
-function A_Guitars() {
-
+function ItemCategory(category){
+   
+    category = category.category
+    
     const [item, setItem] = useState([]);
     const [count, setCount] = useState(-2);
 
@@ -20,7 +22,7 @@ function A_Guitars() {
                     "Access-Control-Allow-Origin": "*"
                 }
             };
-            axios.get('http://localhost:8080/item/all/A_GUITAR', configItem)
+            axios.get('http://localhost:8080/item/all/' + category, configItem)
                 .then((res) => {
                     setItem(res.data)
                 })
@@ -41,4 +43,4 @@ function A_Guitars() {
     )
 
 }
-export default A_Guitars;
+export default ItemCategory;
