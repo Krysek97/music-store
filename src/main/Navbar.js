@@ -6,19 +6,15 @@ import cart from '../images/cart.svg';
 function Navbar() {
 
   return (
-    <nav class="navbar" style={{ backgroundColor: "#ffa31a" }}>
-      <div class="flex-container">
-        <div class="flex-child name">
-          <a class="navbar-brand" href="/" >
-            Music Store
-          </a>
-        </div>
-        <div class='flex-child menu'>
-        <a class='cart' href='/cart'>
-          <img src={cart}></img>
+    <div class="navbar" style={{ backgroundColor: "#ffa31a" }}>
+      <div class="mainNavbar">
+        <a class="navbar-brand" href="/" >
+          Music Store
         </a>
-        </div>
-        <div class="flex-chlid menu">
+        <div class='userPanel'>
+          <a class='cart' href='/cart'>
+            <img src={cart}></img>
+          </a>
           <ul class="navbar-nav">
             <li class="btn-group dropstart">
               <button class="btn dropstart-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -53,7 +49,7 @@ function Navbar() {
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Drums</a>
             <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="/a_drums">Acoustic Drums</a></li>
+              <li><a class="dropdown-item" href="/drums">Acoustic Drums</a></li>
               <li><a class="dropdown-item" href="/e_drums">E-Drums</a></li>
             </ul>
           </li>
@@ -68,7 +64,7 @@ function Navbar() {
           </li>
         </ul>
       </div>
-    </nav >
+    </div >
   );
 
 }

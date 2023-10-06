@@ -1,23 +1,29 @@
-.navbar-brand{
-    font-family: 'Lucida Handwriting';
-}
-.flex-container{
+.mainNavbar {
+    width: 100%;
     display: flex;
 }
-.flex-child {
-    margin-left: 47vw;
-    flex: 1;
-    padding-top: 4px;
-}
-.flex-child:first-child{
-    margin-right: 40vw;
-}
-.menu{
+
+.navbar-brand {
+    font-family: 'Lucida Handwriting';
     margin: auto;
 }
+
+.userPanel {
+    align-self: flex-end;
+}
+
+.navbar-nav {
+    display: inline-block;
+}
+
+.menu {
+    margin: auto;
+}
+
 .nav-link {
     color: black !important;
 }
-.cart{
+
+.cart {
     margin-top: -20px;
 }
