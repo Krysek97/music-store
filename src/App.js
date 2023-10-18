@@ -5,11 +5,11 @@ import Pages from './main/Pages';
 
 function App() {
   return (
-    <div><Navbar></Navbar>
-    <BrowserRouter>
+    <div class='body'>
+      <Navbar></Navbar>
+      <BrowserRouter>
         <Pages></Pages>
-        </BrowserRouter>
-
+      </BrowserRouter>
     </div>
   );
 }

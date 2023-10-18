@@ -1,33 +1,19 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './css/navbar.css'
-import cart from '../images/cart.svg';
+import Toolbar from './Toolbar';
 
 function Navbar() {
 
   return (
-    <div class="navbar" style={{ backgroundColor: "#ffa31a" }}>
+    <div class="navbar">
       <div class="mainNavbar">
         <a class="navbar-brand" href="/" >
           Music Store
         </a>
-        <div class='userPanel'>
-          <a class='cart' href='/cart'>
-            <img src={cart}></img>
-          </a>
-          <ul class="navbar-nav">
-            <li class="btn-group dropstart">
-              <button class="btn dropstart-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <ul class="dropdown-menu dropdown-menu-dark" style={{ position: "absolute" }}>
-                <li><a class="dropdown-item" href="/login">Login</a></li>
-                <li><a class="dropdown-item" href="/register">Register</a></li>
-                <li><a class="dropdown-item" href="/profile">Account</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div >
+        <div>
+          <Toolbar></Toolbar>
+        </div>
       </div >
       <div class="menu">
         <ul class="nav nav-tabs">
